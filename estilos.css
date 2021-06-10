@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.visible {
+	display: block;
+	visibility: visible;
+}
+
+.invisible {
+	display: none;
+	visibility: hidden;
+}
+
+* {
+	background-color: darkgreen;
+	font-family: 'Bebas Neue', cursive;
+}
+
+#contenedor2 {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-flow: row wrap;
+	background-color: lightgreen;
+}
+
+.Equipos {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40%;
+}
+
+.equipo {
+	font-size: -webkit-xxx-large;
+	color: white;
+	margin:10px;
+	border: 3px solid;
+	height: 90px;
+}
+
+.Tantos {
+	display: flex;
+	justify-content: center;
+	margin-top: 3%;
+}
+
+.tanto {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border: 3px solid;
+	width: 550px;
+	height: 515px;
+	margin: 8%;
+}
+
+#iniciar {
+	margin-top: 5%;
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:4px solid;
+	margin-left: 35%;
+	width: 290px;
+	height: 115px;
+}
+
+.activo {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:3px solid;
+	margin: 85px;
+	width: 290px;
+	height: 115px;
+}
+
+.inactivo {
+	opacity: 60%;
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:3px solid;
+	margin: 85px;
+	width: 290px;
+	height: 115px;
+}
+
+.botones {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 10%;
+}
+.suma {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:2px solid;
+	width: 20%;
+}
+
+.resta {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:2px solid;
+	width: 20%;
+}
+
+.e1 {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:2px solid;
+	width: 30%;
+}
+
+.e2 {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	border:2px solid;
+	width: 30%;
+}
+
+.botonesabajo {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 10%;
+	align-items: center;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+.resultado {
+	font-size: -webkit-xxx-large;
+	color: white;
+	text-align: center;
+	width: 50%;
+	height: 30%;
+}
+
+.btn {
+	font-size: xxx-large;
+	color: white;
+	text-align: center;
+	border:2px solid;
+	width: 30%;
+}
+
+.contenedor-img {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+.lineahori {
+	border-bottom: 2px solid;
+	border-bottom-color: white;
+	width: 100%;
+	border: 0%;
+}
+.img {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	align-items: center;
+}
+
+.fosforos {
+	width: 40%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+#linea {
+border-left: 2px solid;
+border-left-color: white;
+}
+.resultado {
+	width: 50%;
+	height: 25%; 
+	margin: 5%;
+}
+.resta {
+	margin: 5%;
+	width: 25%;
+	height: 8%;
+	border:3px solid;
+}
+
+.suma {
+	margin top: 5%;
+	margin-left: 2%;
+	width: 10%;
+	height: 8%;
+	border:3px solid;
+}
+
+#fin {
+	height: 15%;
+	width: 60%;
+	border: 3px solid;
+	margin-top: 5%;
+}

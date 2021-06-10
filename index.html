@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ANOTADOR</title>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<div id="contenedor1" class="visible">
+		<div class="Equipos">
+			<div><input class="equipo" type="text" id="Eq1" placeholder="EQUIPO 1" required/></div>
+			<div><input class="equipo" type="text" id="Eq2" placeholder="EQUIPO 2" required/></div>
+		</div>
+		<div class="Tantos">
+			<div><input class="activo" type="button" name="a 24" value="a24" id="24"></div>
+			<div><input class="inactivo" type="button" name="a 30" value="a30" id="30"></div>
+		</div>
+
+		<div><input type="button" value="INICIAR" id="iniciar"></div>
+	</div>
+	<div id="contenedor2" class="invisible">
+		<div class="botones">
+			<input type="button" class="suma" value="+" id="suma1" />
+	    	<input type="text" class="e1" value="" />
+	    	<div class="vl"></div>
+	    	<input type="text" class="e2" value="">
+	    	<input type="button" class="suma" value="+" id="suma2" /> 
+  		</div>
+  		<hr/>
+  		<div class="contenedor-img">
+	  		<div class="img">
+		  		<img class="fosforos" src="img/0.png" id="p11">
+		  		<img class="fosforos" src="img/0.png" id="p12">
+		  		<img class="fosforos" src="img/0.png" id="p13">
+		  		<div class="lineahori"></div>
+		  		<img class="fosforos" src="img/0.png" id="p14">
+		  		<img class="fosforos" src="img/0.png" id="p15">
+		  		<img class="fosforos" src="img/0.png" id="p16">
+		  	</div>
+		  	<div class="img" id="linea">
+		  		<img class="fosforos" src="img/0.png" id="p21">
+		  		<img class="fosforos" src="img/0.png" id="p22">
+		  		<img class="fosforos" src="img/0.png" id="p23">
+		  		<div class="lineahori"></div>
+		  		<img class="fosforos" src="img/0.png" id="p24">
+		  		<img class="fosforos" src="img/0.png" id="p25">
+		  		<img class="fosforos" src="img/0.png" id="p26">	
+		  	</div>
+	  	</div>
+  		<hr/>
+  		<div class="botones">
+		    <input type="button" class="resta" value="-" id="resta1" />
+		    <input type="number" class="resultado" value="0" id="resultado1">
+		    <div class="vl"></div>
+		    <div class="botonesabajo">
+		    	<input type="text" value="" name="tantos" class="btn" id="tantos">
+		    	<input type="button" class="btn" value="fin" id="fin">
+		    </div>
+		    <input type="number" class="resultado" value="0" id="resultado2">
+		    <input type="button" class="resta" value="-" id="resta2" />
+		</div>
+
+	</div>
+
+<!--------------------------------------------SCRIPT-------------------------------------------------------------------->
+<script>
+var Puntos1= 0;
+var Puntos2= 0;
+var juega =("a24");
+
+	$(document).ready(function() {
+		$('#24').on("click", Cambio2);
+		$('#30').on("click", Cambio1);
+		$('#iniciar').on("click", CambiaContenedor);
+		$('.suma').on("click", function() {
+			Sumar(this.id);
+		});
+		$('.resta').on("click", function() {
+			Restar(this.id);
+		});
+		$('#fin').on("click", Finalizar);
+		//PuntosFosforos("p1");
+		//PuntosFosforos("p2");
+
+
+
+		function Cambio1() {
+			//console.log("LLEGUÉ FUNCION CAMBIO 1");
+			$('#30').removeClass('inactivo').addClass('activo');
+			$('#24').removeClass('activo').addClass('inactivo');
+			juega = ("a30");
+		}
+
+		function Cambio2() {
+			//console.log("LLEGUÉ FUNCION CAMBIO 2");
+			$('#24').removeClass('inactivo').addClass('activo');
+			$('#30').removeClass('activo').addClass('inactivo');
+			juega = ("a24");
+		}
+
+		function CambiaContenedor() {
+			//console.log("LLEGUÉ FUNCION CAMBIO CONTENDOR");
+			$('#contenedor1').removeClass('visible').addClass('invisible');
+			$('#contenedor2').removeClass('invisible').addClass('visible');
+			$(".e1").val($("#Eq1").val());
+    		$(".e2").val($("#Eq2").val());
+    		$("#tantos").val(juega);
+    	}
+    	
+    	function Sumar(id) {
+    		//console.log('Puntos inicial 1:' + Puntos1);
+    		//console.log('Puntos inicial 2:' + Puntos2);
+    		valor = id;
+    		valor = valor.replace('suma','');
+    		juega =juega.replace("a",'');
+    		if (valor == 1) {
+    			if (Puntos1 < juega) {
+    				Puntos1++;
+    			} else {
+    				alert("GANÓ EQUIPO 1");
+    				Finalizar;
+    			}
+    		} else {
+    			if (Puntos2 < juega) {
+    				Puntos2++;
+    			} else {
+    				alert("GANÓ EL EQUIPO 2");
+    				Finalizar;
+    			}
+    		}
+    		$("#resultado1").val(Puntos1);
+    		$("#resultado2").val(Puntos2);
+    		PuntosFosforos("p1");
+    		PuntosFosforos("p2");
+    	    //console.log("Puntos final 2:" + Puntos2);
+    		//console.log("Puntos final 1:" + Puntos1);
+    	}
+
+    	function Restar(id) {
+    		//console.log('Puntos inicial 1:' + Puntos1);
+    		//console.log('Puntos inicial 2:' + Puntos2);
+    		valor = id;
+    		valor = valor.replace('resta','');
+    		if (valor == 1) {
+    			if (Puntos1 > 0) {
+    				Puntos1--;
+    			}
+    		} else {
+    			if (Puntos2 > 0 ) {
+    				Puntos2--;
+    			} 
+    		}
+    		$("#resultado1").val(Puntos1);
+    		$("#resultado2").val(Puntos2);
+    		PuntosFosforos("p1");
+    		PuntosFosforos("p2");
+    	    //console.log("Puntos final 2:" + Puntos2);
+    		//console.log("Puntos final 1:" + Puntos1);
+    	}
+
+    	function Finalizar() {
+    	Puntos1= 0;
+		Puntos2= 0;	
+		$(".e1").val($("#Eq1").val());
+    	$(".e2").val($("#Eq2").val());
+    	$("#tantos").val(juega);
+    	$("#resultado1").val(0);
+    	$("#resultado2").val(0);
+    	$('#contenedor1').removeClass('invisible').addClass('visible');
+		$('#contenedor2').removeClass('visible').addClass('invisible'); 
+    	}
+
+    	function PuntosFosforos(eq) {
+	    	for (var i = 1; i <= 6; i++) {
+	    		$('#eq'+ i).attr('src','img/0.png');
+	    	}
+	    	console.log(eq);
+	    	if (eq == "p1") {
+	    		Puntosint = parseInt(Puntos1 / 5);
+	    		console.log("Puntos1 divido 5:" + Puntosint);
+	    		resto = (Puntos1 % 5);
+	    	} else {
+	    		Puntosint = parseInt(Puntos2 / 5);
+	    		console.log(Puntosint + 'Puntos');
+	    		resto = (Puntos2 % 5);
+	    		console.log("Puntos2 divido 5:" + Puntosint)
+	    	}
+	    	for (var i = 1; i <= Puntosint; i++) {
+	    		$('#' + eq+ i).attr('src','img/5.png');
+	    		}
+	    	console.log("El valor de i es:" + i);
+	    	
+	    	 console.log(resto);
+	    	switch (resto) {
+	    		case 1:
+	    			$('#' + eq +i).attr('src', 'img/1.png');
+	    		break
+	    		case 2: 
+	    			$('#' + eq +i).attr('src', 'img/2.png');
+	    		break
+	    		case 3:
+	    			$('#' + eq +i).attr('src', 'img/3.png');
+	    		break
+	    		case 4:
+	    			$('#' + eq +i).attr('src', 'img/4.png');
+	    		break
+	    		case 5: 
+	    			$('#' + eq+ i).attr('src', 'img/5.png');
+	    		break
+	    	}
+    	}
+	});
+
+</script>
+
+
+</body>
+</html>
